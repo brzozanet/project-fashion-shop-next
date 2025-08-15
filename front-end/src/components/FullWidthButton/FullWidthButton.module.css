@@ -1,0 +1,15 @@
+.fullWidthButton {
+  border: none;
+  background: none;
+  width: 100%;
+  background-color: var(--color-theme-main);
+  color: var(--color-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+}

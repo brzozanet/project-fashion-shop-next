@@ -1,0 +1,50 @@
+.detail {
+  width: 100%;
+  padding-right: 1rem;
+}
+
+.detailBrand {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detailName {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.detailPrice {
+  font-size: 2rem;
+  color: var(--color-price);
+  margin-bottom: 2rem;
+}
+
+.detailBtnWrapper {
+  margin-bottom: 2rem;
+}
+
+.detailShipping::before {
+  content: ""; /* wymagana właściwość */
+  display: inline-block; /* lub block, zależnie od potrzeb */
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assets/icon_shipping.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  vertical-align: middle; /* wyrównanie z tekstem */
+}
+
+.detailReturn::before {
+  content: ""; /* wymagana właściwość */
+  display: inline-block; /* lub block, zależnie od potrzeb */
+  width: 20px;
+  height: 20px;
+  background-image: url("../../assets/icon_return.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  vertical-align: middle; /* wyrównanie z tekstem */
+}

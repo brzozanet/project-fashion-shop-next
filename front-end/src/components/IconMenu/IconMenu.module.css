@@ -1,0 +1,26 @@
+.iconMenuList {
+  display: flex;
+  align-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.iconMenuItem {
+  position: relative;
+}
+
+.iconCounter {
+  background-color: var(--color-yellow);
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-weight: 700;
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+}

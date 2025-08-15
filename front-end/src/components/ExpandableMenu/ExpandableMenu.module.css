@@ -1,0 +1,32 @@
+.expandableMenu {
+  min-width: 12rem;
+  width: 12rem;
+  margin-top: 1rem;
+}
+
+.genderTitle {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.categoriesItem {
+  padding-bottom: 0.5rem;
+}
+
+.categoriesLink {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoriesIconActive {
+  transform: rotate(180deg);
+}
+
+.subCategoriesItem {
+  padding-top: 0.5rem;
+  padding-left: 2rem;
+}
+
+.subCategoriesItem a:global(.active) {
+  font-weight: 700;
+}

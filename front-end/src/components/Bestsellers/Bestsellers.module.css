@@ -1,0 +1,12 @@
+.bestsellers {
+  margin-bottom: 10rem;
+}
+
+.bestsellersTitle {
+  margin-bottom: 1rem;
+}
+
+.bestsellersList {
+  display: flex;
+  justify-content: space-between;
+}

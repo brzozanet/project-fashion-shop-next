@@ -1,0 +1,13 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.paginationLink {
+  padding: 0 0.5rem;
+}
+
+.paginationLink a:global(.active) {
+  font-weight: 700;
+}

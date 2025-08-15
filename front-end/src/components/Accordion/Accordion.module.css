@@ -1,0 +1,22 @@
+.accordionContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordionImg {
+  transform: rotate(180deg);
+}
+
+.accordionImgReverse {
+  transform: none;
+}
+
+.accordionTitle {
+  font-weight: 700;
+  padding: 1rem 0;
+}
+
+.accordionText {
+  border-top: 1px solid var(--color-text-default);
+  padding: 0.5rem 0;
+}

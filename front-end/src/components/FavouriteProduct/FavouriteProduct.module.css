@@ -1,0 +1,66 @@
+.favouriteProduct {
+  border-bottom: 1px solid var(--color-text-default);
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.favouriteBox:nth-child(2) {
+  flex: 1;
+}
+
+.favouriteSubBox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.favouriteSubBoxText {
+  flex: 1;
+}
+
+.favouritePhotoContainer {
+  width: 85px;
+  height: 140px;
+}
+
+.favouritePhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.favouriteTitle {
+  font-size: var(--font-size-default);
+  margin-bottom: 0.5rem;
+}
+
+.favouritePrice {
+  font-weight: 700;
+}
+
+.favouriteIcon {
+  margin-right: 2rem;
+}
+
+.favouriteIconText {
+  margin-left: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.favouritesButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.favouriteButtonAction {
+  border: none;
+  background: none;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
