@@ -62,6 +62,8 @@ project-fashion-shop/
 │   │   ├── constants/              # Stałe aplikacji
 │   │   ├── views/                  # Strony aplikacji
 │   │   └── styles/                 # Globalne style
+    ├── .env                        # W .gitignore (lokalne ustawienia)
+    ├── .env.example                # W repozytorium (szablon)
 │   ├── public/                     # Pliki statyczne
 │   └── package.json
 ├── back-end/                       # JSON Server
@@ -96,7 +98,17 @@ project-fashion-shop/
    cd react-shop-online
    ```
 
-2. W terminalu wywołaj:
+2. Skopiuj plik `.env.example` do `.env`:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Edytuj plik `.env` i ustaw odpowiednie wartości:
+
+   - `VITE_BACKEND_URL` - adres serwera backend (domyślnie: http://localhost:3000)
+
+4. W terminalu wywołaj:
 
    ```bash
    npm install
