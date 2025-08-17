@@ -62,8 +62,8 @@ project-fashion-shop/
 │   │   ├── constants/              # Stałe aplikacji
 │   │   ├── views/                  # Strony aplikacji
 │   │   └── styles/                 # Globalne style
-    ├── .env                        # W .gitignore (lokalne ustawienia)
-    ├── .env.example                # W repozytorium (szablon)
+|   ├── .env                        # W .gitignore (lokalne ustawienia)
+|   ├── .env.example                # W repozytorium (szablon)
 │   ├── public/                     # Pliki statyczne
 │   └── package.json
 ├── back-end/                       # JSON Server
