@@ -1,156 +1,251 @@
-# 🛒 Fashion contemporary shop
+## Plan przepisania aplikacji React na Next.js
 
-### Projekt sklepu internetowego z koszykiem zakupowym
+### Faza 1: Przygotowanie środowiska
 
-Aplikacja Fashion contemporary shop to nowoczesny sklep internetowy umożliwiający przeglądanie produktów, dodawanie ich do ulubionych oraz zarządzanie koszykiem zakupowym. Projekt obejmuje frontend w React oraz backend z JSON Server do obsługi danych produktów.
+1. **Utworzenie kopii zapasowej**
 
-## 🌐 Demo
+   - Zmień nazwę obecnego folderu `front-end` na `front-end.OLD`
+   - Utwórz nowy folder `front-end`
 
-Aplikacja składa się z dwóch części:
+2. **Inicjalizacja projektu Next.js**
 
-- **Frontend**: Interfejs użytkownika w React
-- **Backend**: JSON Server z bazą danych produktów
+   - W nowym folderze `front-end` uruchom `npx create-next-app@latest .`
+   - Wybierz opcje: JavaScript (bez TypeScript), CSS Modules, App Router
+   - Zainstaluj zależności
 
-## 🛠 Użyte technologie
+3. **Konfiguracja Turbopack**
+   - W `package.json` zmień skrypt dev na `"dev": "next dev --turbo"`
 
-### Frontend
+### Faza 2: Struktura folderów Next.js
 
-- **React** (v19.1.0 - biblioteka JavaScript do budowania interfejsów użytkownika)
-- **Vite** (narzędzie do budowania i rozwoju aplikacji)
-- **React Router DOM** (v7.7.0 - nawigacja i routing w aplikacji)
-- **React Context** (zarządzanie stanem aplikacji - koszyk i waluta)
-- **CSS Modules** (lokalne style komponentów)
-- **Modern Normalize** (normalizacja stylów CSS)
-- **Nanoid** (generowanie unikalnych identyfikatorów)
-- **JavaScript ES6+** (nowoczesna składnia JavaScript)
-- **HTML5** (semantyczna struktura dokumentu)
-- **CSS3** (zaawansowane style i layout)
-- **LocalStorage** (lokalne przechowywanie danych koszyka)
+1. **Utworzenie podstawowej struktury App Router**
 
-### Backend
+   - `app/` - główny folder aplikacji
+   - `app/layout.js` - główny layout
+   - `app/page.js` - strona główna
+   - `app/globals.css` - globalne style
 
-- **JSON Server** (v0.17.4 - mock REST API server)
-- **Node.js** (środowisko uruchomieniowe JavaScript)
+2. **Utworzenie folderów dla stron**
+   - `app/cart/page.js` - strona koszyka
+   - `app/favourites/page.js` - strona ulubionych
+   - `app/products/page.js` - lista produktów
+   - `app/products/[id]/page.js` - szczegóły produktu
 
-### Narzędzia deweloperskie
+### Faza 3: Migracja komponentów
 
-- **ESLint** (linting i kontrola jakości kodu)
-- **Git & GitHub** (kontrola wersji i hosting kodu)
+1. **Kopiowanie komponentów**
 
-## 📂 Struktura aplikacji
+   - Skopiuj wszystkie komponenty z `front-end.OLD/src/components/` do `front-end/components/`
+   - Skopiuj style CSS Modules
+
+2. **Adaptacja komponentów**
+   - Zmień importy z React Router na Next.js Link
+   - Dostosuj routing do App Router
+   - Zaktualizuj ścieżki do obrazów (przenieś do `public/`)
+
+### Faza 4: Migracja kontekstów i hooków
+
+1. **Kopiowanie logiki biznesowej**
+
+   - Skopiuj `contexts/`, `hooks/`, `constants/` z `front-end.OLD/src/`
+   - Dostosuj do Next.js (Client Components)
+
+2. **Migracja API**
+   - Skopiuj `api/` z `front-end.OLD/src/`
+   - Dostosuj do Next.js Server Actions lub API Routes
+
+### Faza 5: Routing i nawigacja
+
+1. **Implementacja App Router**
+
+   - Utwórz layouty dla każdej sekcji
+   - Zaimplementuj dynamiczne routingi
+   - Dostosuj nawigację
+
+2. **Migracja Breadcrumbs**
+   - Dostosuj do Next.js usePathname
+
+### Faza 6: Stylowanie i assets
+
+1. **Migracja stylów**
+
+   - Skopiuj `globals.css` i `theme.css`
+   - Dostosuj CSS Modules do Next.js
+
+2. **Migracja obrazów**
+   - Przenieś wszystkie obrazy do `public/`
+   - Zaktualizuj ścieżki w komponentach
+
+### Faza 7: Testowanie i debugowanie
+
+1. **Sprawdzenie funkcjonalności**
+
+   - Testuj każdą stronę
+   - Sprawdź routing
+   - Zweryfikuj komponenty
+
+2. **Optymalizacja**
+   - Sprawdź wydajność z Turbopack
+   - Zoptymalizuj ładowanie obrazów
+
+## Schemat nowej struktury folderów
 
 ```
-project-fashion-shop/
-├── front-end/                      # Aplikacja React
-│   ├── src/
-│   │   ├── components/             # Komponenty React
-│   │   │   ├── Bestsellers/        # Sekcja bestsellerów
-│   │   │   ├── Cart*/              # Komponenty koszyka
-│   │   │   ├── Categories*/        # Menu kategorii
-│   │   │   ├── Currency*/          # Selektor walut
-│   │   │   ├── Detail/             # Szczegóły produktu
-│   │   │   ├── Favourite*/         # Komponenty ulubionych
-│   │   │   ├── Hero/               # Sekcja hero
-│   │   │   ├── Layout/             # Layout aplikacji
-│   │   │   ├── Product*/           # Komponenty produktów
-│   │   │   └── ...
-│   │   ├── contexts/               # React Context
-│   │   │   ├── CartContext.js      # Kontekst koszyka
-│   │   │   └── CurrencyContext.js  # Kontekst waluty
-│   │   ├── hooks/                  # Custom hooks
-│   │   ├── api/                    # Funkcje API
-│   │   ├── constants/              # Stałe aplikacji
-│   │   ├── views/                  # Strony aplikacji
-│   │   └── styles/                 # Globalne style
-|   ├── .env                        # W .gitignore (lokalne ustawienia)
-|   ├── .env.example                # W repozytorium (szablon)
-│   ├── public/                     # Pliki statyczne
-│   └── package.json
-├── back-end/                       # JSON Server
-│   ├── db.json                     # Baza danych produktów
-│   ├── public/product-photos/      # Zdjęcia produktów
-│   └── package.json
-└── README.md
+front-end/
+├── app/
+│   ├── layout.js                 # Główny layout aplikacji
+│   ├── page.js                   # Strona główna
+│   ├── globals.css               # Globalne style
+│   ├── cart/
+│   │   └── page.js              # Strona koszyka
+│   ├── favourites/
+│   │   └── page.js              # Strona ulubionych
+│   ├── products/
+│   │   ├── page.js              # Lista produktów
+│   │   └── [id]/
+│   │       └── page.js          # Szczegóły produktu
+│   └── not-found.js             # Strona 404
+├── components/                   # Wszystkie komponenty (skopiowane z .OLD)
+│   ├── Accordion/
+│   ├── Bestsellers/
+│   ├── Breadcrumbs/
+│   ├── Button/
+│   ├── CartProduct/
+│   ├── CartProductsList/
+│   ├── CartSummary/
+│   ├── CategoriesMenu/
+│   ├── CenteredContent/
+│   ├── CurrencySelector/
+│   ├── Detail/
+│   ├── ExpandableMenu/
+│   ├── FavouriteProduct/
+│   ├── FavouritesList/
+│   ├── FlexContainer/
+│   ├── Footer/
+│   ├── FullWidthButton/
+│   ├── Hero/
+│   ├── IconMenu/
+│   ├── Layout/
+│   ├── Logo/
+│   ├── MainContent/
+│   ├── MainMenu/
+│   ├── PageTitle/
+│   ├── Pagination/
+│   ├── Photos/
+│   ├── Product/
+│   └── Products/
+├── contexts/                     # Konteksty React (skopiowane z .OLD)
+│   ├── CartContext.js
+│   └── CurrencyContext.js
+├── hooks/                       # Hooki (skopiowane z .OLD)
+│   ├── useCart.js
+│   └── useCurrency.js
+├── constants/                   # Stałe (skopiowane z .OLD)
+│   ├── categories.js
+│   ├── costs.js
+│   ├── curriencies.js
+│   ├── genders.js
+│   └── mappings.js
+├── api/                        # API (skopiowane z .OLD)
+│   ├── actionAddToFavourites.js
+│   ├── actionDeleteFromFavourites.js
+│   ├── loaderFavourites.js
+│   ├── loaderMainPage.js
+│   ├── loaderProductDetails.js
+│   └── loaderProductsList.js
+├── public/                     # Statyczne pliki
+│   ├── logo_fashion_shop.png
+│   ├── hero_summersale.jpg
+│   ├── icon_arrow.svg
+│   ├── icon_cart.svg
+│   ├── icon_delete.svg
+│   ├── icon_heart_red.svg
+│   ├── icon_heart.svg
+│   ├── icon_return.svg
+│   ├── icon_shipping.svg
+│   └── error.png
+├── package.json
+├── next.config.js
+└── .gitignore
 ```
 
-## 📋 Dostępne strony
+Ten plan pozwoli Ci krok po kroku przepisać aplikację, zachowując wszystkie funkcjonalności i stopniowo poznając różnice między React a Next.js.
 
-- **/** - Strona główna z bohaterem i bestsellerami
-- **/products** - Lista wszystkich produktów z filtrowaniem
-- **/products/:id** - Szczegóły produktu
-- **/favourites** - Lista ulubionych produktów
-- **/cart** - Koszyk zakupowy
-- **404** - Strona błędu dla nieistniejących tras
-
-## 🚀 Jak uruchomić aplikację
-
-### Wymagania wstępne
-
-- Node.js (wersja LTS)
-- npm
-
-### Instalacja i uruchomienie
-
-1. Sklonuj repozytorium:
-
-   ```bash
-   git clone https://github.com/brzozanet/project-fashion-shop.git
-   cd react-shop-online
-   ```
-
-2. Skopiuj plik `.env.example` do `.env`:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-3. Edytuj plik `.env` i ustaw odpowiednie wartości:
-
-   - `VITE_BACKEND_URL` - adres serwera backend (domyślnie: http://localhost:3000)
-
-4. W terminalu wywołaj:
-
-   ```bash
-   npm install
-   npm run dev
-   ```
-
-   ✅ Oba serwery (frontendowy i backendowy) uruchomią się jednocześnie!
-
-   Frontend będzie dostępny pod adresem: [http://localhost:5173](http://localhost:5173)
-
-   Backend będzie dostępny pod adresem: [http://localhost:3000](http://localhost:3000)
-
-## 🌐 API Endpoints
-
-Backend udostępnia następujące endpointy:
-
-- `GET /products` - Lista wszystkich produktów
-- `GET /products/:id` - Szczegóły produktu
-- `GET /favourites` - Lista ulubionych produktów
-- `POST /favourites` - Dodanie do ulubionych
-- `DELETE /favourites/:id` - Usunięcie z ulubionych
-
-## ✨ Funkcjonalności
-
-### Zaimplementowane
-
-- 📱 Responsywny design
-- 🛍️ Przeglądanie produktów z paginacją
-- 🔍 Filtrowanie produktów (kategoria, płeć)
-- ❤️ System ulubionych produktów
-- 🛒 Koszyk zakupowy z localStorage
-- 💱 Przełączanie walut (PLN, EUR)
-- 🔄 Breadcrumbs navigation
-- 📦 Szczegóły produktu z galerą zdjęć
-
-## 📝 Uwagi
-
-- Aplikacja wymaga uruchomienia zarówno frontendu jak i backendu
-- Dane koszyka są przechowywane lokalnie w localStorage
-- Zdjęcia produktów znajdują się w folderze `back-end/public/product-photos/`
-- Aplikacja wspiera waluty: PLN, EUR
-
-<br>
-
-![Screenshot App](https://raw.githubusercontent.com/brzozanet/project-fashion-shop/main/front-end/src/images/gh-cover-react-shop-online.jpg)
+```plaintext
+front-end/
+├── app/
+│   ├── layout.js                 # Główny layout aplikacji
+│   ├── page.js                   # Strona główna
+│   ├── globals.css               # Globalne style
+│   ├── cart/
+│   │   └── page.js              # Strona koszyka
+│   ├── favourites/
+│   │   └── page.js              # Strona ulubionych
+│   ├── products/
+│   │   ├── page.js              # Lista produktów
+│   │   └── [id]/
+│   │       └── page.js          # Szczegóły produktu
+│   └── not-found.js             # Strona 404
+├── components/                   # Wszystkie komponenty (skopiowane z .OLD)
+│   ├── Accordion/
+│   ├── Bestsellers/
+│   ├── Breadcrumbs/
+│   ├── Button/
+│   ├── CartProduct/
+│   ├── CartProductsList/
+│   ├── CartSummary/
+│   ├── CategoriesMenu/
+│   ├── CenteredContent/
+│   ├── CurrencySelector/
+│   ├── Detail/
+│   ├── ExpandableMenu/
+│   ├── FavouriteProduct/
+│   ├── FavouritesList/
+│   ├── FlexContainer/
+│   ├── Footer/
+│   ├── FullWidthButton/
+│   ├── Hero/
+│   ├── IconMenu/
+│   ├── Layout/
+│   ├── Logo/
+│   ├── MainContent/
+│   ├── MainMenu/
+│   ├── PageTitle/
+│   ├── Pagination/
+│   ├── Photos/
+│   ├── Product/
+│   └── Products/
+├── contexts/                     # Konteksty React (skopiowane z .OLD)
+│   ├── CartContext.js
+│   └── CurrencyContext.js
+├── hooks/                       # Hooki (skopiowane z .OLD)
+│   ├── useCart.js
+│   └── useCurrency.js
+├── constants/                   # Stałe (skopiowane z .OLD)
+│   ├── categories.js
+│   ├── costs.js
+│   ├── curriencies.js
+│   ├── genders.js
+│   └── mappings.js
+├── api/                        # API (skopiowane z .OLD)
+│   ├── actionAddToFavourites.js
+│   ├── actionDeleteFromFavourites.js
+│   ├── loaderFavourites.js
+│   ├── loaderMainPage.js
+│   ├── loaderProductDetails.js
+│   └── loaderProductsList.js
+├── public/                     # Statyczne pliki
+│   ├── logo_fashion_shop.png
+│   ├── hero_summersale.jpg
+│   ├── icon_arrow.svg
+│   ├── icon_cart.svg
+│   ├── icon_delete.svg
+│   ├── icon_heart_red.svg
+│   ├── icon_heart.svg
+│   ├── icon_return.svg
+│   ├── icon_shipping.svg
+│   └── error.png
+├── package.json
+├── next.config.js
+└── .gitignore
+```
