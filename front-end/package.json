@@ -9,13 +9,15 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.0"
+    "modern-normalize": "^3.0.1",
+    "nanoid": "^3.3.11",
+    "next": "15.5.0",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.5.0",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-next": "15.5.0"
   }
 }
