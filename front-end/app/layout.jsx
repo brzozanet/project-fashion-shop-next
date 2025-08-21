@@ -1,4 +1,5 @@
 "use client";
+import { CategoriesMenu } from "./components/CategoriesMenu/CategoriesMenu";
 import { CurrencySelector } from "./components/CurrencySelector/CurrencySelector";
 import { IconMenu } from "./components/IconMenu/IconMenu";
 import { Logo } from "./components/Logo/Logo";
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
                   <IconMenu />
                 </div>
               </TopBar>
+              <CategoriesMenu />
               {children}
             </MainContent>
           </CartContext>

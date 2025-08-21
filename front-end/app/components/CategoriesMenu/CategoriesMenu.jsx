@@ -1,9 +1,11 @@
-import { CATEGORIES } from "../../constants/categories";
-import { NavLink, useParams } from "react-router-dom";
+import Link from "next/link";
+import { CATEGORIES } from "@/app/constants/categories";
+import { useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 import css from "./CategoriesMenu.module.css";
 
 export function CategoriesMenu() {
+  // FIXME: params in Next
   const params = useParams();
 
   return (
@@ -13,9 +15,9 @@ export function CategoriesMenu() {
           {CATEGORIES.map((category) => {
             return (
               <li className={css.categoryItem} key={nanoid()}>
-                <NavLink to={`${params.gender}/${category.path}`}>
+                <Link href={`${params.gender}/${category.path}`}>
                   {category.name}
-                </NavLink>
+                </Link>
               </li>
             );
           })}
