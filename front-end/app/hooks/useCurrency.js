@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { DEFAULT_CURRENCY } from "../constants/curriencies";
 

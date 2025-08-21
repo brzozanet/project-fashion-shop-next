@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
-import ICON_HEART from "../../assets/icon_heart.svg";
-import ICON_BAG from "../../assets/icon_cart.svg";
+import { CartContext } from "@/app/contexts/CartContext";
 import css from "./IconMenu.module.css";
 
 export function IconMenu() {
@@ -12,13 +12,13 @@ export function IconMenu() {
     <>
       <ul className={css.iconMenuList}>
         <li className={css.iconMenuItem}>
-          <Link to="/ulubione">
-            <img src={ICON_HEART} alt="Ulubione" title="Ulubione"></img>
+          <Link href="/ulubione">
+            <img src="/icons/heart.svg" alt="Ulubione" title="Ulubione"></img>
           </Link>
         </li>
         <li className={css.iconMenuItem}>
-          <Link to="/koszyk">
-            <img src={ICON_BAG} alt="Koszyk" title="Koszyk" />
+          <Link href="/koszyk">
+            <img src="/icons/cart.svg" alt="Koszyk" title="Koszyk" />
             <div className={css.iconCounter}>{shoppingCart.length}</div>
           </Link>
         </li>
