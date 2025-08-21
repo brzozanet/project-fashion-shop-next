@@ -1,5 +1,5 @@
-import { GENDERS } from "../../constants/genders";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
+import { GENDERS } from "@/app/constants/genders";
 import { nanoid } from "nanoid";
 import css from "./MainMenu.module.css";
 
@@ -10,7 +10,7 @@ export function MainMenu() {
         {GENDERS.map((category) => {
           return (
             <li key={nanoid()} className={css.mainMenuItem}>
-              <NavLink to={category.path}>{category.name}</NavLink>
+              <Link href={category.path}>{category.name}</Link>
             </li>
           );
         })}

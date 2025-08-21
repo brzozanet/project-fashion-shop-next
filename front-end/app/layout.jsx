@@ -1,3 +1,7 @@
+import { Logo } from "./components/Logo/Logo";
+import { MainContent } from "./components/MainContent/MainContent";
+import { MainMenu } from "./components/MainMenu/MainMenu";
+import { TopBar } from "./components/TopBar/TopBar";
 import "./styles/globals.css";
 import "./styles/theme.css";
 
@@ -14,7 +18,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pl">
-      <body>{children}</body>
+      <body>
+        <MainContent>
+          <TopBar>
+            <MainMenu />
+            <Logo />
+          </TopBar>
+          {children}
+        </MainContent>
+      </body>
     </html>
   );
 }
