@@ -1,6 +1,7 @@
 "use client";
 import { CategoriesMenu } from "./components/CategoriesMenu/CategoriesMenu";
 import { CurrencySelector } from "./components/CurrencySelector/CurrencySelector";
+import { Footer } from "./components/Footer/Footer";
 import { IconMenu } from "./components/IconMenu/IconMenu";
 import { Logo } from "./components/Logo/Logo";
 import { MainContent } from "./components/MainContent/MainContent";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
               <CategoriesMenu />
               {children}
             </MainContent>
+            <Footer />
           </CartContext>
         </CurrencyContext>
       </body>
