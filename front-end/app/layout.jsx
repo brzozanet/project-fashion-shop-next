@@ -1,5 +1,4 @@
 "use client";
-
 import { CurrencySelector } from "./components/CurrencySelector/CurrencySelector";
 import { IconMenu } from "./components/IconMenu/IconMenu";
 import { Logo } from "./components/Logo/Logo";
