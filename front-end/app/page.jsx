@@ -2,21 +2,19 @@ import { Hero } from "./components/Hero/Hero";
 
 export default async function Home() {
   const BACKEND_URL = process.env.BACKEND_URL;
-  console.log(BACKEND_URL);
 
   try {
-    const gender = "kobieta";
+    const gender = "women";
     const genderProducts = await fetch(`${BACKEND_URL}/${gender}`);
-    console.log(genderProducts);
     const response = await genderProducts.json();
-    console.log(response);
+    return response;
   } catch (error) {
     console.error(error);
   }
 
   return (
     <>
-      <Hero imageUrl={genderProducts.heroImageUrl} />
+      <Hero imageUrl={response.heroImageUrl} />
     </>
   );
 }
