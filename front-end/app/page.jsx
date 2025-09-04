@@ -8,6 +8,8 @@ export default async function Home() {
     const gender = "kobieta";
     const genderProducts = await fetch(`${BACKEND_URL}/${gender}`);
     console.log(genderProducts);
+    const response = await genderProducts.json();
+    console.log(response);
   } catch (error) {
     console.error(error);
   }
