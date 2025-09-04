@@ -3,16 +3,19 @@ import { useEffect, useState } from "react";
 import { DEFAULT_CURRENCY } from "../constants/curriencies";
 
 export const useCurrency = () => {
-  // Inicjalizacja z localStorage
-  const [currency, setCurrency] = useState(() => {
+  const [currency, setCurrency] = useState(DEFAULT_CURRENCY);
+
+  // Inicjalizacja z localStorage, wykonywanie tylko w przeglądarce, podczas hydratacji
+  useEffect(() => {
     try {
       const savedUserCurrency = localStorage.getItem("selectedCurrency");
-      return savedUserCurrency || DEFAULT_CURRENCY;
+      if (savedUserCurrency) {
+        setCurrency(savedUserCurrency);
+      }
     } catch (error) {
       console.error("Błąd podczas pobierania wybranej waluty z pamięci", error);
-      return DEFAULT_CURRENCY;
     }
-  });
+  }, []);
 
   // Zapisywanie przy każdej zmianie
   useEffect(() => {
