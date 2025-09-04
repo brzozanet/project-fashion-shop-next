@@ -2,16 +2,20 @@
 import { useEffect, useState } from "react";
 
 export const useCart = () => {
-  // Inicjalizacja z localStorage
-  const [shoppingCart, setShoppingCart] = useState(() => {
+  const [shoppingCart, setShoppingCart] = useState([]);
+
+  // Inicjalizacja z localStorage, wykonywanie tylko w przeglądarce, podczas hydratacji
+  useEffect(() => {
     try {
       const savedShoppingCart = localStorage.getItem("shoppingCart");
-      return savedShoppingCart ? JSON.parse(savedShoppingCart) : [];
+      if (savedShoppingCart) {
+        setShoppingCart(savedShoppingCart);
+        // setShoppingCart(JSON.parse(savedShoppingCart));
+      }
     } catch (error) {
       console.error("Błąd podczas pobierania koszyka", error);
-      return [];
     }
-  });
+  }, []);
 
   // Zapisywanie przy każdej zmianie
   useEffect(() => {
