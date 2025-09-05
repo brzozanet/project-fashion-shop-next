@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { CATEGORIES } from "@/app/constants/categories";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import { nanoid } from "nanoid";
 import css from "./CategoriesMenu.module.css";
 
 export function CategoriesMenu() {
-  // FIXME: params in Next
   const params = useParams();
 
   return (
