@@ -1,8 +1,9 @@
-import { CenteredContent } from "../CenteredContent/CenteredContent";
-import { Product } from "../Product/Product";
-import { PageTitle } from "../PageTitle/PageTitle";
+"use client";
 import { useContext } from "react";
-import { CurrencyContext } from "../../contexts/CurrencyContext";
+import { CurrencyContext } from "@/app/contexts/CurrencyContext";
+import { CenteredContent } from "../CenteredContent/CenteredContent";
+import { PageTitle } from "../PageTitle/PageTitle";
+import { Product } from "../Product/Product";
 import css from "./Bestsellers.module.css";
 
 export function Bestsellers({ bestsellersData, favouritesData }) {

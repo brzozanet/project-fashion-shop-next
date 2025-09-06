@@ -1,4 +1,6 @@
-import { Link, useParams, useFetcher } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import { CurrencyContext } from "../../contexts/CurrencyContext";
 import { useContext } from "react";
 import css from "./Product.module.css";
